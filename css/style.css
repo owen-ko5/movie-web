@@ -46,7 +46,7 @@ button {
 .movie-card {
     display: flex;
     align-items: center;
-    gap: 20px; /* Space between image and text */
+    gap: 20px; 
     border: 1px solid #ddd;
     padding: 15px;
     margin: 10px 0;
@@ -55,7 +55,7 @@ button {
 }
 
 .movie-card img {
-    width: 150px; /* Adjust image size */
+    width: 150px; 
     height: auto;
     border-radius: 8px;
 }
@@ -65,8 +65,9 @@ button {
 }
 
 .description {
-    max-width: 500px; /* Limit description width */
+    max-width: 500px; 
     color: white;
+
 }
 
 
@@ -92,5 +93,6 @@ button {
     cursor: pointer;
     
 }
+
 
 

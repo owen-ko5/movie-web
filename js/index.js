@@ -52,6 +52,22 @@ function displayMovies(movies) {
         container.appendChild(movieDiv);
     });
 }
+document.querySelectorAll(".clickable").forEach(element => {
+    element.addEventListener("click", (event) => {
+        const movieId = event.target.getAttribute("data-id");
+        toggleDescription(movieId);
+    });
+});
+function toggleDescription(movieId) {
+    const description = document.getElementById(`desc-${movieId}`);
+
+    if (description.style.display === "none") {
+        description.style.display = "block"; // Show description
+    } else {
+        description.style.display = "none"; // Hide description
+    }
+}
+
 function searchMovies() {
     const searchInput = document.getElementById("search-input").value.toLowerCase(); // Get search text
 
