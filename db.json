@@ -7,7 +7,7 @@
         "image": "https://md.goojara.to/10216866.jpg",
         "description": "A group of explorers make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage", 
         "category": "movies",
-        "year": 2012
+        "year": "2012"
       },
       {
         "id": 2,
@@ -59,7 +59,7 @@
         "title": "The Expendables",
         "genre": "action",
         "image": "https://md.goojara.to/10002410.jpg",
-        "desription": "A CIA operative hires a team of mercenaries to eliminate a Latin dictator and a renegade CIA agent",
+        "description": "A CIA operative hires a team of mercenaries to eliminate a Latin dictator and a renegade CIA agent",
         "category": "movies",
         "year": 2018 
       },
@@ -68,7 +68,7 @@
         "title": "The Day Of The Jackal",
         "genre": "action series",
         "image": "https://md.goojara.to/20242107.jpg",
-        "decription": "The Jackal is an elusive assassin who makes his living carrying out hits for the highest fee. He soon meets his match in a tenacious British intelligence officer who tracks him down in a thrilling cat-and-mouse chase across Europe",
+        "description": "The Jackal is an elusive assassin who makes his living carrying out hits for the highest fee. He soon meets his match in a tenacious British intelligence officer who tracks him down in a thrilling cat-and-mouse chase across Europe",
         "category": "series",
         "year": 2017
       },
@@ -77,7 +77,7 @@
         "title": "Megamind",
         "genre": "animation",
         "image": "https://md.goojara.to/10230247.jpg",
-        "desription": "Megamind's former villain team, The Doom Syndicate, has returned. Our newly crowned blue hero must now keep up evil appearances until he can assemble his friends (Roxanne, Ol' Chum and Keiko) to stop his former evil teammates from launching Metro City to the Moon",
+        "description": "Megamind's former villain team, The Doom Syndicate, has returned. Our newly crowned blue hero must now keep up evil appearances until he can assemble his friends (Roxanne, Ol' Chum and Keiko) to stop his former evil teammates from launching Metro City to the Moon",
         "category": "animation",
         "year":2023 
       },
@@ -86,7 +86,7 @@
         "title": "",
         "genre": "comedy",
         "image": "",
-        "desription": "",
+        "description": "",
         "category": "k-drama",
         "year": 2015
       },
@@ -95,7 +95,7 @@
         "title": "The Red Notice ",
         "genre": "action",
         "image": "https://md.goojara.to/10227391.jpg",
-        "desription": "An Interpol agent tracks the world's most wanted art thief.",
+        "description": "An Interpol agent tracks the world's most wanted art thief.",
         "category": "movies",
         "year":2007
       },
@@ -104,7 +104,7 @@
         "title": "The 100",
         "genre": "adventure",
         "image": "https://md.goojara.to/20088570.jpg",
-        "desription": "Set 97 years after a nuclear war has destroyed civilization, when a spaceship housing humanity's lone survivors sends 100 juvenile delinquents back to Earth in hopes of possibly re-populating the planet",
+        "description": "Set 97 years after a nuclear war has destroyed civilization, when a spaceship housing humanity's lone survivors sends 100 juvenile delinquents back to Earth in hopes of possibly re-populating the planet",
         "category": "series",
         "year":2019
       },
@@ -113,7 +113,7 @@
         "title": "Moana 2",
         "genre": "animation",
         "image": "https://md.goojara.to/10229805.jpg",
-        "desription": "After receiving an unexpected call from her wayfinding ancestors, Moana must journey to the far seas of Oceania and into dangerous, long-lost waters for an adventure unlike anything she's ever faced.",
+        "description": "After receiving an unexpected call from her wayfinding ancestors, Moana must journey to the far seas of Oceania and into dangerous, long-lost waters for an adventure unlike anything she's ever faced.",
         "category": "animation",
         "year":2015
       },
@@ -122,7 +122,7 @@
         "title": "",
         "genre": "",
         "image": "",
-        "desription": "",
+        "description": "",
         "category": "k-drama",
         "year":2012
       },
@@ -131,7 +131,7 @@
         "title": "The Lost Medallion",
         "genre": "adventure",
         "image": "https://md.goojara.to/10015206.jpg",
-        "desription": "",
+        "description": "",
         "category": "movies",
         "year": 2019
       },
@@ -139,8 +139,8 @@
         "id":16 ,
         "title": "Strike Back",
         "genre": "action series",
-        "image": "",
-        "desription": "",
+        "image": "https://md.goojara.to/20009264.jpg",
+        "description": "The actions of 'Section 20', a secretive unit of British military intelligence. A team of special operations personnel conduct several high risk missions throughout the globe.",
         "category": "series",
         "year":2010
       },
@@ -149,7 +149,7 @@
         "title": "Angry Birds",
         "genre": "Animation",
         "image": "https://md.goojara.to/10218134.jpg",
-        "desription": "Find out why the birds are so angry. When an island populated by happy, flightless birds is visited by mysterious green piggies, it's up to three unlikely outcasts - Red, Chuck and Bomb - to figure out what the pigs are up to.",
+        "description": "Find out why the birds are so angry. When an island populated by happy, flightless birds is visited by mysterious green piggies, it's up to three unlikely outcasts - Red, Chuck and Bomb - to figure out what the pigs are up to.",
         "category": "animation",
         "year":2017
       },
@@ -157,8 +157,8 @@
         "id":18 ,
         "title": "Sweet Home",
         "genre": "Romance",
-        "image": "",
-        "desription": "",
+        "image": "https://md.goojara.to/20209078.jpg",
+        "description": "Hyunsoo, a loner high school student who lost his entire family in a terrible accident, moves to an old apartment complex called Green Home.",
         "category": "k-drama",
         "year": 2010
       },
@@ -167,7 +167,7 @@
         "title": "Jumanji Next Level",
         "genre": "adventure",
         "image": "https://md.goojara.to/10224689.jpg",
-        "desription": "In Jumanji: The Next Level, the gang is back but the game has changed. As they return to rescue one of their own, the players will have to brave parts unknown from arid deserts to snowy mountains, to escape the world's most dangerous game",
+        "description": "In Jumanji: The Next Level, the gang is back but the game has changed. As they return to rescue one of their own, the players will have to brave parts unknown from arid deserts to snowy mountains, to escape the world's most dangerous game",
         "category": "movies",
         "year": 2022
       },
@@ -238,8 +238,8 @@
         "id":27 ,
         "title": "Siren",
         "genre": "horror",
-        "image": "",
-        "description": "",
+        "image": "https://md.goojara.to/20162461.jpg",
+        "description": "The coastal town of Bristol Cove is known for its legend of once being home to mermaids. When the arrival of a mysterious girl proves this folklore all too true, the battle between man and sea takes a very vicious turn as these predatory beings return to reclaim their right to the ocean.",
         "category": "series",
         "year":2008
       },
@@ -247,8 +247,8 @@
       "id":28 ,
       "title": "Into The Bad Lands",
       "genre": "action series",
-      "image": "",
-      "description": "",
+      "image": "https://md.goojara.to/20094112.jpg",
+      "description": "A mighty warrior and a young boy search for enlightenment in a ruthless territory controlled by feudal barons.",
       "category": "series",
       "year":2015
     },
@@ -256,8 +256,8 @@
     "id":29 ,
     "title": "All Of Us Are Dead",
     "genre": "horror",
-    "image": "",
-    "description": "",
+    "image": "https://md.goojara.to/20224904.jpg",
+    "description": "A high school becomes ground zero for a zombie virus outbreak. Trapped students must fight their way out or turn into one of the rabid infected.",
     "category": "k-drama",
     "year": 2009
   },
@@ -274,8 +274,8 @@
     "id":20 ,
     "title": "Nikita",
     "genre": "action",
-    "image": "",
-    "description": "",
+    "image": "https://md.goojara.to/20000612.jpg",
+    "description": "This project is based on the original French film La Femme Nikita. The story is about two assassins for a top-secret government organization assassin who goes rogue and a new assassin who is training to replace the old one.",
     "category": "series",
     "year":2009 
   },
