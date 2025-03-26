@@ -10,28 +10,35 @@
     <header>
         <h1>ENTERTAINMENT TO THE MAX</h1>
 
-        <input type="text" id="search-input" placeholder="Search for a movie...">
-        <button id="search-btn">Search</button>
-    <div>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search for a movie...">
+            <button id="search-btn">Search</button>
+        </div>
 
-
-        <button id="movies-btn">Movies</button>
-        <button id="series-btn">Series</button>
-        <button id="animation-btn">Animation</button>
-        <button id="kdrama-btn">K-Drama</button>
-
-        <div id="movie-container"></div> 
-        <div id></div>
-        
-
-    </div>
-        
-   
-
+        <div class="category-buttons">
+            <button id="movies-btn">Movies</button>
+            <button id="series-btn">Series</button>
+            <button id="animation-btn">Animation</button>
+            <button id="kdrama-btn">K-Drama</button>
+        </div>
     </header>
 
-v</a>
-    
+    <main>
+        <!-- Movie details (hidden by default) -->
+        <div class="movie-detail-container" style="display: none;">
+            <img id="movie-image" alt="Movie Poster">
+            <div class="details">
+                <h2 id="movie-title"></h2>
+                <p><strong>Genre:</strong> <span id="movie-genre"></span></p>
+                <p><strong>Year:</strong> <span id="movie-year"></span></p>
+                <p><strong>Description:</strong> <span id="movie-description"></span></p>
+            </div>
+        </div>
+
+        <!-- Movie list container -->
+        <div id="movie-container"></div> 
+    </main>
+
     <script src="js/index.js"></script>
 </body>
 </html>

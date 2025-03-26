@@ -10,15 +10,20 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("search-btn").addEventListener("click", searchMovies);
 });
 
-// Fetch all movies from db.json
+// ✅ Fetch all movies from the API
 function fetchMovies() {
     fetch("http://localhost:3000/movies")
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => displayMovies(data))
         .catch(error => console.error("Error fetching movies:", error));
 }
 
-// Fetch specific category
+// ✅ Fetch specific category
 function fetchCategory(category) {
     fetch("http://localhost:3000/movies")
         .then(response => response.json())
@@ -29,7 +34,7 @@ function fetchCategory(category) {
         .catch(error => console.error(`Error fetching ${category}:`, error));
 }
 
-// Display movies dynamically
+// ✅ Display movies dynamically
 function displayMovies(movies) {
     const container = document.getElementById("movie-container");
     container.innerHTML = ""; // Clear previous content
@@ -40,49 +45,40 @@ function displayMovies(movies) {
 
         movieDiv.innerHTML = `
             <div class="movie-card">
-                <img src="${movie.image}" alt="${movie.title}">
+                <img src="${movie.image}" alt="${movie.title}" class="clickable" data-id="${movie.id}">
                 <div class="movie-details">
-                    <h2>${movie.title}</h2>
+                    <h2 class="clickable" data-id="${movie.id}">${movie.title}</h2>
                     <p><strong>Genre:</strong> ${movie.genre}</p>
-                     <p><strong>Year:</strong> ${movie.year}</p>
-                     <p class="description"><strong>Description:</strong> ${movie.description}</p>
+                    <p><strong>Year:</strong> ${movie.year}</p> 
+                    <p class="description"><strong>Description:</strong> ${movie.description}</p>
                 </div>
             </div>
         `;
 
+        // Add event listener to image and title for redirection
+        movieDiv.querySelectorAll(".clickable").forEach(element => {
+            element.addEventListener("click", (event) => {
+                const movieId = event.target.getAttribute("data-id");
+                window.location.href = `movie.html?id=${movieId}`; // Redirect to details page
+            });
+        });
+
         container.appendChild(movieDiv);
     });
 }
-document.querySelectorAll(".clickable").forEach(element => {
-    element.addEventListener("click", (event) => {
-        const movieId = event.target.getAttribute("data-id");
-        toggleDescription(movieId);
-    });
-});
-function toggleDescription(movieId) {
-    const description = document.getElementById(`desc-${movieId}`);
 
-    if (description.style.display === "none") {
-        description.style.display = "block"; // Show description
-    } else {
-        description.style.display = "none"; // Hide description
-    }
-}
-
+// ✅ Search movies using URL parameters
 function searchMovies() {
-    const searchInput = document.getElementById("search-input").value.toLowerCase(); // Get search text
-
+    const searchInput = document.getElementById("search-input").value.toLowerCase();
+    
     fetch("http://localhost:3000/movies")
         .then(response => response.json())
         .then(data => {
-            // Filter movies based on title match
             const filteredMovies = data.filter(movie => 
                 movie.title.toLowerCase().includes(searchInput)
             );
 
-            // Display filtered results
             displayMovies(filteredMovies);
         })
         .catch(error => console.error("Error searching movies:", error));
 }
-
