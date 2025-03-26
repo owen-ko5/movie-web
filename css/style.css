@@ -1,0 +1,50 @@
+
+body {
+    background-color:black;
+    color: rgb(26, 230, 219);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header {
+    background-color: #434444;
+    padding: 20px;
+    text-align:center;
+}
+
+
+.title {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    display: flex;
+    justify-content: left;
+    gap: 15px;
+    
+}
+
+.title a {
+    color: rgb(67, 185, 185);
+    font-size: 13px;
+    padding: 10px 15px;
+}
+
+#search {
+    padding: 8px;
+    width: 500px;
+    border: 1px solid green;
+    font-size: 13px;
+    background-color:rgb(231, 222, 222);
+    border-radius: 5px;
+}
+
+
+button {
+    padding: 6px 13px;
+    background-color: #4cff3c;
+    color: rgb(8, 8, 8);
+    font-size: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
