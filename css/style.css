@@ -1,14 +1,15 @@
-
 body {
+    background-image: url("https://img.freepik.com/free-vector/shiny-film-negative-cinema-background-with-text-space_1017-52787.jpg?t=st=1742994211~exp=1742997811~hmac=369a928fb5d3d6b42497ef13f92ba6be3fd2362ab5efd3c31d6090c80e22c50a&w=996");
     background-color:black;
     color: rgb(26, 230, 219);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 header {
-    background-color: #434444;
+    
     padding: 20px;
     text-align:center;
+    color: lightblue;
 }
 
 
@@ -22,18 +23,9 @@ header {
 }
 
 .title a {
-    color: rgb(67, 185, 185);
+    color: rgb(25, 175, 175);
     font-size: 13px;
     padding: 10px 15px;
-}
-
-#search {
-    padding: 8px;
-    width: 500px;
-    border: 1px solid green;
-    font-size: 13px;
-    background-color:rgb(231, 222, 222);
-    border-radius: 5px;
 }
 
 
@@ -45,6 +37,60 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+button {
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
 
+.movie-card {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between image and text */
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    
+}
+
+.movie-card img {
+    width: 150px; /* Adjust image size */
+    height: auto;
+    border-radius: 8px;
+}
+
+.movie-details {
+    flex: 1;
+}
+
+.description {
+    max-width: 500px; /* Limit description width */
+    color: white;
+}
+
+
+#search-input {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+
+#search-btn {
+    padding: 10px 15px;
+    margin-left: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    
+}
 
 

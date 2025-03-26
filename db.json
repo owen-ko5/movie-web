@@ -2,68 +2,52 @@
     "movies": [
       {
         "id": 1,
-        "title": "Extraction 2",
-        "genre": "Action",
-        "year": 2024,
-        "imgage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJEOd6CWFrB_cuTLBHz05qGTY_yKQc3YM8RaolK-hAwxQX0UM63RnJ5veh6WxbkhOou1FXQvLRV3Y186x3YKjy6_c6O8HZ7h2gfM9Prg"
-      
+        "title": "Interstellar",
+        "genre": "Sci-Fi",
+        "image": "https://md.goojara.to/10216866.jpg",
+        "description": "A group of explorers make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage", 
+        "category": "movies"
       },
-        {
+      {
         "id": 2,
-        "title": "Back in action",
+        "title": "Breaking Bad",
+        "genre": "Drama",
+        "image": "https://md.goojara.to/20005273.jpg",
+        "description": "Informed he has terminal cancer, an underachieving chemistry genius turned high school chemistry teacher turns to using his expertise in chemistry to provide a legacy for his family... by producing the world's highest quality crystal meth.",
+        "category": "series"
+      },
+      {
+        "id": 3,
+        "title": "Spirited Away",
+        "genre": "Animation",
+        "image": "https://md.goojara.to/10001749.jpg",
+        "description": "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.",
+        "category": "animation"
+      },
+      {
+        "id": 4,
+        "title": "Crash Landing on You",
+        "genre": "Romance",
+        "image": "https://upload.wikimedia.org/wikipedia/en/6/64/Crash_Landing_on_You_main_poster.jpg",
+        "description": "A paragliding mishap drops a South Korean heiress in North Korea -- and into the life of an army officer, who decides he will help her hide.",
+        "category": "k-drama"
+      },
+      {
+        "id": 5,
+        "title": "The Dark Knight",
         "genre": "Action",
-        "year": 2025,
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1IzR1LGKjy29NZTuWo8kZSZskHmht7D6YwE7ATu0Ol6oRZuG0lNR3WTwRNnmEwli0AsDZa4lKv478HPD8nxT6lOjGWOgEanGVpqvP8Q"
+        "image": "https://md.goojara.to/10000018.jpg",
+        "description": "Batman, Gordon and Harvey Dent are forced to deal with the chaos unleashed by an anarchist mastermind known only as the Joker, as it drives each of them to their limits.",
+        "category": "movies"
+      },
+      {
+        "id": 6,
+        "title": "Stranger Things",
+        "genre": "Sci-Fi",
+        "image": "https://md.goojara.to/20100202.jpg",
+        "description": "When a young boy disappears, his mother, a police chief, and his friends must confront terrifying forces in order to get him back.",
+        "category": "series"
       }
-    ],
-
-    "series": [
-        {
-          "id": 1,
-          "title": "Prison break",
-          "genre": "Crime drama",
-          "year": 2005,
-          "image": "https://upload.wikimedia.org/wikipedia/en/4/46/Prison_Break_season_1_dvd.jpg"
-        },
-        {
-          "id": 2,
-          "title": "The day of the jackal",
-          "genre": "Action",
-          "year": 2025,
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSev5M6IQAaxOt9WTdk_IZJsO88hxZk8rxnz8po7l53OvrXlgjT"
-        }
-      ],
-      "animations": [
-        {
-          "id": 1,
-          "title": "Zootopia",
-          "genre": "Animation, Action",
-          "year": 2016,
-          "image": "https://static.musictoday.com/store/bands/4225/product_600/XVLP149.jpg"
-        },
-        {
-          "id": 2,
-          "title": "The Bad Guys",
-          "genre": "Animation action",
-          "year": 2019,
-          "image": "https://upload.wikimedia.org/wikipedia/en/0/00/The_Bad_Guys_poster.jpeg"
-        }
-      ],
-      "korean_drama": [
-        {
-          "id": 1,
-          "title": "Sweet Home",
-          "genre": "Thriller, Drama",
-          "year": 2021,
-          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQJkSyW_9IM8LqZFUJo1GkiBWWNZIYbL740_gEOhykLty70IwE3"
-        },
-        {
-          "id": 2,
-          "title": "All Us Are Dead",
-          "genre": "horror",
-          "year": 2019,
-          "image": "https://upload.wikimedia.org/wikipedia/en/2/24/All_of_Us_Are_Dead.jpeg"
-        }
-      ]
-    }
-    
+    ]
+  }
+  
