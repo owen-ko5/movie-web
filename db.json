@@ -176,7 +176,7 @@
         "title": "Transporter",
         "genre": "action",
         "image": "https://md.goojara.to/10000801.jpg",
-        "desription": "This film is about a man (Statham) whose job is to deliver packages without asking any questions. Complications arise when he breaks those rules.",
+        "description": "This film is about a man (Statham) whose job is to deliver packages without asking any questions. Complications arise when he breaks those rules.",
         "category": "movies",
         "year":2009 
       },
@@ -185,7 +185,7 @@
         "title": "Prison Break",
         "genre": "crime",
         "image": "https://md.goojara.to/10006717.jpg",
-        "desription": "Two lovers have been through hell and back fighting for their lives. When they finally attempt to start a life, one is apprehended by the FBI for a murder that was actually self-defense. In prison, she becomes increasingly vulnerable. After a beat down from the guards and a bounty for her head, her husband reunites with old friends and attempts 'The Final Break'.",
+        "description": "Two lovers have been through hell and back fighting for their lives. When they finally attempt to start a life, one is apprehended by the FBI for a murder that was actually self-defense. In prison, she becomes increasingly vulnerable. After a beat down from the guards and a bounty for her head, her husband reunites with old friends and attempts 'The Final Break'.",
         "category": "series",
         "year": 2020
       },
@@ -194,7 +194,7 @@
         "title": "The Lastship",
         "genre": "action",
         "image": "https://md.goojara.to/20089466.jpg",
-        "desription": "The crew of a naval destroyer is forced to confront the reality of a new existence when a pandemic kills off most of the earth's population.",
+        "description": "The crew of a naval destroyer is forced to confront the reality of a new existence when a pandemic kills off most of the earth's population.",
         "category": "series",
         "year": 2021
       },
@@ -203,7 +203,7 @@
         "title": "Space Dogs",
         "genre": "adventure",
         "image": "https://md.goojara.to/10225537.jpg",
-        "desription": "Get ready to blast off to an out-of-this-world adventure with canine teenage astronaut, Pushok, who is determined to find his missing astronaut father. Against all odds, Pushok stows away on a US rocket ship to the moon but soon finds he is not alone, as he is reunited with his mom and encounters a macho monkey and a baby alien",
+        "description": "Get ready to blast off to an out-of-this-world adventure with canine teenage astronaut, Pushok, who is determined to find his missing astronaut father. Against all odds, Pushok stows away on a US rocket ship to the moon but soon finds he is not alone, as he is reunited with his mom and encounters a macho monkey and a baby alien",
         "category": "animation",
         "year": 2024
       },
@@ -212,7 +212,7 @@
         "title": "",
         "genre": "",
         "image": "",
-        "desription": "",
+        "description": "",
         "category": "k-drama",
         "year":2022
       },
@@ -221,7 +221,7 @@
         "title": "The Lost City",
         "genre": "adventure",
         "image": "https://md.goojara.to/10227837.jpg",
-        "desription": "A reclusive romance novelist on a book tour with her cover model gets swept up in a kidnapping attempt that lands them both in a cutthroat jungle adventure.",
+        "description": "A reclusive romance novelist on a book tour with her cover model gets swept up in a kidnapping attempt that lands them both in a cutthroat jungle adventure.",
         "category": "movies",
         "year":2016
       },
@@ -230,7 +230,7 @@
         "title": "",
         "genre": "",
         "image": "",
-        "desription": "",
+        "description": "",
         "category": "k-drama",
         "year":2017
       },
@@ -239,7 +239,7 @@
         "title": "Siren",
         "genre": "horror",
         "image": "",
-        "desription": "",
+        "description": "",
         "category": "series",
         "year":2008
       },
@@ -248,7 +248,7 @@
       "title": "Into The Bad Lands",
       "genre": "action series",
       "image": "",
-      "desription": "",
+      "description": "",
       "category": "series",
       "year":2015
     },
@@ -257,7 +257,7 @@
     "title": "All Of Us Are Dead",
     "genre": "horror",
     "image": "",
-    "desription": "",
+    "description": "",
     "category": "k-drama",
     "year": 2009
   },
@@ -266,7 +266,7 @@
     "title": "The Spy Next Door",
     "genre": "comedy",
     "image": "https://md.goojara.to/10000012.jpg",
-    "desription": "Former CIA spy Bob Ho takes on his toughest assignment to date: looking after his girlfriend's three kids, who haven't exactly warmed to their mom's beau.",
+    "description": "Former CIA spy Bob Ho takes on his toughest assignment to date: looking after his girlfriend's three kids, who haven't exactly warmed to their mom's beau.",
     "category": "movies",
     "year":2009 
   },
@@ -275,7 +275,7 @@
     "title": "Nikita",
     "genre": "action",
     "image": "",
-    "desription": "",
+    "description": "",
     "category": "series",
     "year":2009 
   },
