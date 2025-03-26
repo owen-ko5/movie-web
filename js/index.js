@@ -44,7 +44,8 @@ function displayMovies(movies) {
                 <div class="movie-details">
                     <h2>${movie.title}</h2>
                     <p><strong>Genre:</strong> ${movie.genre}</p>
-                    <p class="description">${movie.description}</p>
+                     <p><strong>Year:</strong> ${movie.year}</p>
+                     <p class="description"><strong>Description:</strong> ${movie.description}</p>
                 </div>
             </div>
         `;
