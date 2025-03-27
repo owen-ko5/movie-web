@@ -1,29 +1,28 @@
 let activeCategory = "all";
-const apiKey = "cfdfd510ab2d960857f9947e9d4df55c"; // Replace with your TMDB API key
+const apiKey = "cfdfd510ab2d960857f9947e9d4df55c"; 
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize event listeners
+ 
   document.getElementById("movies-btn").addEventListener("click", () => fetchCategory("movie"));
   document.getElementById("series-btn").addEventListener("click", () => fetchCategory("tv"));
   document.getElementById("animation-btn").addEventListener("click", () => fetchCategory("animation"));
   document.getElementById("browser-btn").addEventListener("click", fetchTrendingMovies);
   document.getElementById("search-btn").addEventListener("click", searchMovies);
 
-  // Fetch initial movies
+ 
   fetchTrendingMovies();
 });
 
-/**
- * Fetch movies by category using TMDB API.
- */
+
+ 
 function fetchCategory(category) {
   let apiUrl;
 
   if (category === "animation") {
-    // Fetch animated movies
+    
     apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&page=1&with_genres=16`;
   } else {
-    // Fetch other categories (movies or TV shows)
+    
     apiUrl = `https://api.themoviedb.org/3/discover/${category}?api_key=${apiKey}&language=en-US&page=1`;
   }
 
@@ -34,16 +33,14 @@ function fetchCategory(category) {
       }
       return response.json();
     })
-    .then((data) => displayMovies(data.results, true)) // Pass `true` to indicate TMDB data
+    .then((data) => displayMovies(data.results, true)) 
     .catch((error) => {
       console.error(`Error fetching ${category}:`, error);
       displayError(`Failed to load ${category}. Please try again later.`);
     });
 }
 
-/**
- * Fetch trending movies from TMDB API.
- */
+
 function fetchTrendingMovies() {
   const trendingUrl = `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`;
 
@@ -54,21 +51,19 @@ function fetchTrendingMovies() {
       }
       return response.json();
     })
-    .then((data) => displayMovies(data.results, true)) // Pass `true` to indicate TMDB data
+    .then((data) => displayMovies(data.results, true))
     .catch((error) => {
       console.error("Error fetching trending movies:", error);
       displayError("Failed to load trending movies. Please try again later.");
     });
 }
 
-/**
- * Search for movies or TV shows using TMDB API.
- */
+
 function searchMovies() {
   const searchInput = document.getElementById("search-input").value.toLowerCase().trim();
 
   if (searchInput === "") {
-    fetchTrendingMovies(); // Reset to show trending movies
+    fetchTrendingMovies(); 
     return;
   }
 
@@ -85,7 +80,7 @@ function searchMovies() {
       if (data.results.length === 0) {
         displayError("No results found for your search.");
       } else {
-        displayMovies(data.results, true); // Pass `true` to indicate TMDB data
+        displayMovies(data.results, true); 
       }
     })
     .catch((error) => {
@@ -94,12 +89,10 @@ function searchMovies() {
     });
 }
 
-/**
- * Display movies or TV shows in the UI.
- */
+
 function displayMovies(movies, isTMDB = false) {
   const container = document.getElementById("movie-container");
-  container.innerHTML = ""; // Clear previous content
+  container.innerHTML = ""; 
 
   if (movies.length === 0) {
     displayError("No results found.");
@@ -114,7 +107,7 @@ function displayMovies(movies, isTMDB = false) {
     const movieDesc = movie.overview || "No description available";
     const movieImage = movie.poster_path
       ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-      : "default-image.jpg"; // Default image if no poster is available
+      : "default-image.jpg"; 
 
     const movieDiv = document.createElement("div");
     movieDiv.classList.add("movie");
@@ -131,12 +124,12 @@ function displayMovies(movies, isTMDB = false) {
       </div>
     `;
 
-    // Add click event listeners to navigate to the movie details page
+   
     movieDiv.querySelectorAll(".clickable").forEach((element) => {
       element.addEventListener("click", (event) => {
         const movieId = event.target.getAttribute("data-id");
         if (movieId) {
-          window.location.href = `movie.html?id=${movieId}`; // Redirect to details page
+          window.location.href = `movie.html?id=${movieId}`; 
         }
       });
     });
@@ -145,9 +138,7 @@ function displayMovies(movies, isTMDB = false) {
   });
 }
 
-/**
- * Display an error message in the movie container.
- */
+
 function displayError(message) {
   const container = document.getElementById("movie-container");
   container.innerHTML = `<h3>${message}</h3>`;
