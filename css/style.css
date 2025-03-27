@@ -1,13 +1,12 @@
 body {
     background-image: url("https://img.freepik.com/free-vector/shiny-film-negative-cinema-background-with-text-space_1017-52787.jpg?t=st=1742994211~exp=1742997811~hmac=369a928fb5d3d6b42497ef13f92ba6be3fd2362ab5efd3c31d6090c80e22c50a&w=996");
-    background-color:black;
     color: rgb(26, 230, 219);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 header {
     
-    padding: 20px;
+    padding: 50px;
     text-align:center;
     color: lightblue;
 }
@@ -36,10 +35,7 @@ button {
     font-size: 13px;
     border-radius: 5px;
     cursor: pointer;
-}
-button {
     margin: 5px;
-    padding: 10px;
     cursor: pointer;
 }
 
@@ -51,7 +47,7 @@ button {
     padding: 15px;
     margin: 10px 0;
     border-radius: 8px;
-    
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .movie-card img {
@@ -60,9 +56,6 @@ button {
     border-radius: 8px;
 }
 
-.movie-details {
-    flex: 1;
-}
 
 .description {
     max-width: 500px; 
@@ -77,8 +70,8 @@ button {
     border: 2px solid #ddd;
     border-radius: 8px;
     font-size: 16px;
-    outline: none;
-    transition: all 0.3s ease;
+    
+    
 }
 
 
@@ -93,6 +86,5 @@ button {
     cursor: pointer;
     
 }
-
 
 

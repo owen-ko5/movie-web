@@ -1,8 +1,8 @@
 let activeCategory = "all";
 document.addEventListener("DOMContentLoaded", () => {
-    fetchMovies(); // Load all movies on page load
+    fetchMovies(); 
 
-    // Event listeners for category buttons
+    
     document.getElementById("movies-btn").addEventListener("click", () => fetchCategory("movies"));
     document.getElementById("series-btn").addEventListener("click", () => fetchCategory("series"));
     document.getElementById("animation-btn").addEventListener("click", () => fetchCategory("animation"));
@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("search-btn").addEventListener("click", searchMovies);
 });
 function setCategory(category) {
-    activeCategory = category; // Update global category
+    activeCategory = category; 
     fetchCategory(category);
 }
-// ✅ Fetch all movies from local JSON server
+
 function fetchMovies() {
     fetch("http://localhost:3000/movies")
         .then(response => {
@@ -27,7 +27,7 @@ function fetchMovies() {
         .catch(error => console.error("Error fetching movies:", error));
 }
 
-// ✅ Fetch specific category
+
 function fetchCategory(category) {
     fetch("http://localhost:3000/movies")
         .then(response => response.json())
@@ -38,7 +38,7 @@ function fetchCategory(category) {
         .catch(error => console.error(`Error fetching ${category}:`, error));
 }
 
-// ✅ Fetch trending movies from TMDB API
+
 function fetchTrendingMovies() {
     const apiKey = "cfdfd510ab2d960857f9947e9d4df55c";
     const trendingUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
@@ -50,14 +50,14 @@ function fetchTrendingMovies() {
             }
             return response.json();
         })
-        .then(data => displayMovies(data.results, true)) // `true` for TMDB movies
+        .then(data => displayMovies(data.results, true)) 
         .catch(error => console.error("Error fetching trending movies:", error));
 }
 
-// ✅ Display movies dynamically (Supports both local JSON and TMDB API)
+
 function displayMovies(movies, isTMDB = false) {
     const container = document.getElementById("movie-container");
-    container.innerHTML = ""; // Clear previous content
+    container.innerHTML = ""; 
 
     movies.forEach(movie => {
         const movieId = movie.id;
@@ -67,7 +67,7 @@ function displayMovies(movies, isTMDB = false) {
         const movieDesc = movie.description || movie.overview || "No description available";
         const movieImage = isTMDB
             ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-            : movie.image || "default-image.jpg"; // Fallback image
+            : movie.image || "default-image.jpg"; 
 
         if (!movieId || !movieTitle) {
             console.error("Invalid movie data:", movie);
@@ -89,7 +89,7 @@ function displayMovies(movies, isTMDB = false) {
             </div>
         `;
 
-        // Add event listener to image and title for redirection
+       
         movieDiv.querySelectorAll(".clickable").forEach(element => {
             element.addEventListener("click", (event) => {
                 const movieId = event.target.getAttribute("data-id");
@@ -103,12 +103,12 @@ function displayMovies(movies, isTMDB = false) {
     });
 }
 
-// ✅ Search movies locally
+
 function searchMovies() {
     const searchInput = document.getElementById("search-input").value.toLowerCase().trim();
 
     if (searchInput === "") {
-        fetchMovies(); // If search is empty, show all movies
+        fetchMovies(); 
         return;
     }
 
