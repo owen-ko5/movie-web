@@ -10,36 +10,43 @@
     <header>
         <h1>ENTERTAINMENT TO THE MAX</h1>
 
+        <!-- Search Bar -->
         <div class="search-container">
             <input type="text" id="search-input" placeholder="Search for a movie...">
             <button id="search-btn">Search</button>
         </div>
 
+        <!-- Category Buttons -->
         <div class="category-buttons">
             <button id="browser-btn">Browser</button>
             <button id="movies-btn">Movies</button>
             <button id="series-btn">Series</button>
             <button id="animation-btn">Animation</button>
-            <button id="kdrama-btn">K-Drama</button>
+            
         </div>
     </header>
-
+    <a href="index.html" class="back-btn">Back to Home</a>
     <main>
-        <!-- Movie details (hidden by default) -->
-        <div class="movie-detail-container" style="display: none;">
+        
+        <!-- Movie Details Container -->
+        <div class="movie-detail-container" id="movie-detail-container">
             <img id="movie-image" alt="Movie Poster">
             <div class="details">
-                <h2 id="movie-title"></h2>
-                <p><strong>Genre:</strong> <span id="movie-genre"></span></p>
-                <p><strong>Year:</strong> <span id="movie-year"></span></p>
-                <p><strong>Description:</strong> <span id="movie-description"></span></p>
+              <h1 id="movie-title"></h1>
+              <p><strong>Genre:</strong> <span id="movie-genre"></span></p>
+              <p><strong>Year:</strong> <span id="movie-year"></span></p>
+              <p><strong>Description:</strong> <span id="movie-description"></span></p>
+              <p><strong>Rating:</strong> <span id="movie-rating"></span></p>
+              <p><strong>Runtime:</strong> <span id="movie-runtime"></span></p>
             </div>
-        </div>
+          </div>
 
-        <!-- Movie list container -->
-        <div id="movie-container"></div> 
+        <!-- Movie List Container -->
+        <div id="movie-container"></div>
+        
     </main>
 
+    <!-- JavaScript -->
     <script src="js/index.js"></script>
 </body>
 </html>

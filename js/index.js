@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("movies-btn").addEventListener("click", () => fetchCategory("movie"));
   document.getElementById("series-btn").addEventListener("click", () => fetchCategory("tv"));
   document.getElementById("animation-btn").addEventListener("click", () => fetchCategory("animation"));
-  document.getElementById("kdrama-btn").addEventListener("click", () => fetchCategory("k-drama"));
   document.getElementById("browser-btn").addEventListener("click", fetchTrendingMovies);
   document.getElementById("search-btn").addEventListener("click", searchMovies);
 
@@ -18,7 +17,15 @@ document.addEventListener("DOMContentLoaded", () => {
  * Fetch movies by category using TMDB API.
  */
 function fetchCategory(category) {
-  const apiUrl = `https://api.themoviedb.org/3/discover/${category === "k-drama" ? "tv" : category}?api_key=${apiKey}&language=en-US&page=1`;
+  let apiUrl;
+
+  if (category === "animation") {
+    // Fetch animated movies
+    apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&page=1&with_genres=16`;
+  } else {
+    // Fetch other categories (movies or TV shows)
+    apiUrl = `https://api.themoviedb.org/3/discover/${category}?api_key=${apiKey}&language=en-US&page=1`;
+  }
 
   fetch(apiUrl)
     .then((response) => {
@@ -28,7 +35,10 @@ function fetchCategory(category) {
       return response.json();
     })
     .then((data) => displayMovies(data.results, true)) // Pass `true` to indicate TMDB data
-    .catch((error) => console.error(`Error fetching ${category}:`, error));
+    .catch((error) => {
+      console.error(`Error fetching ${category}:`, error);
+      displayError(`Failed to load ${category}. Please try again later.`);
+    });
 }
 
 /**
@@ -45,7 +55,10 @@ function fetchTrendingMovies() {
       return response.json();
     })
     .then((data) => displayMovies(data.results, true)) // Pass `true` to indicate TMDB data
-    .catch((error) => console.error("Error fetching trending movies:", error));
+    .catch((error) => {
+      console.error("Error fetching trending movies:", error);
+      displayError("Failed to load trending movies. Please try again later.");
+    });
 }
 
 /**
@@ -70,12 +83,15 @@ function searchMovies() {
     })
     .then((data) => {
       if (data.results.length === 0) {
-        document.getElementById("movie-container").innerHTML = "<h3>No results found</h3>";
+        displayError("No results found for your search.");
       } else {
         displayMovies(data.results, true); // Pass `true` to indicate TMDB data
       }
     })
-    .catch((error) => console.error("Error searching movies:", error));
+    .catch((error) => {
+      console.error("Error searching movies:", error);
+      displayError("An error occurred while searching. Please try again later.");
+    });
 }
 
 /**
@@ -86,7 +102,7 @@ function displayMovies(movies, isTMDB = false) {
   container.innerHTML = ""; // Clear previous content
 
   if (movies.length === 0) {
-    container.innerHTML = "<h3>No results found</h3>";
+    displayError("No results found.");
     return;
   }
 
@@ -127,4 +143,12 @@ function displayMovies(movies, isTMDB = false) {
 
     container.appendChild(movieDiv);
   });
+}
+
+/**
+ * Display an error message in the movie container.
+ */
+function displayError(message) {
+  const container = document.getElementById("movie-container");
+  container.innerHTML = `<h3>${message}</h3>`;
 }
