@@ -1,3 +1,4 @@
+let activeCategory = "all";
 document.addEventListener("DOMContentLoaded", () => {
     fetchMovies(); // Load all movies on page load
 
@@ -9,7 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("browser-btn").addEventListener("click", fetchTrendingMovies);
     document.getElementById("search-btn").addEventListener("click", searchMovies);
 });
-
+function setCategory(category) {
+    activeCategory = category; // Update global category
+    fetchCategory(category);
+}
 // ✅ Fetch all movies from local JSON server
 function fetchMovies() {
     fetch("http://localhost:3000/movies")
