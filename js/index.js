@@ -1,130 +1,130 @@
 let activeCategory = "all";
+const apiKey = "cfdfd510ab2d960857f9947e9d4df55c"; // Replace with your TMDB API key
+
 document.addEventListener("DOMContentLoaded", () => {
-    fetchMovies(); 
+  // Initialize event listeners
+  document.getElementById("movies-btn").addEventListener("click", () => fetchCategory("movie"));
+  document.getElementById("series-btn").addEventListener("click", () => fetchCategory("tv"));
+  document.getElementById("animation-btn").addEventListener("click", () => fetchCategory("animation"));
+  document.getElementById("kdrama-btn").addEventListener("click", () => fetchCategory("k-drama"));
+  document.getElementById("browser-btn").addEventListener("click", fetchTrendingMovies);
+  document.getElementById("search-btn").addEventListener("click", searchMovies);
 
-    
-    document.getElementById("movies-btn").addEventListener("click", () => fetchCategory("movies"));
-    document.getElementById("series-btn").addEventListener("click", () => fetchCategory("series"));
-    document.getElementById("animation-btn").addEventListener("click", () => fetchCategory("animation"));
-    document.getElementById("kdrama-btn").addEventListener("click", () => fetchCategory("k-drama"));
-    document.getElementById("browser-btn").addEventListener("click", fetchTrendingMovies);
-    document.getElementById("search-btn").addEventListener("click", searchMovies);
+  // Fetch initial movies
+  fetchTrendingMovies();
 });
-function setCategory(category) {
-    activeCategory = category; 
-    fetchCategory(category);
-}
 
-function fetchMovies() {
-    fetch("http://localhost:3000/movies")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => displayMovies(data))
-        .catch(error => console.error("Error fetching movies:", error));
-}
-
-
+/**
+ * Fetch movies by category using TMDB API.
+ */
 function fetchCategory(category) {
-    fetch("http://localhost:3000/movies")
-        .then(response => response.json())
-        .then(data => {
-            const filteredMovies = data.filter(movie => movie.category.toLowerCase() === category);
-            displayMovies(filteredMovies);
-        })
-        .catch(error => console.error(`Error fetching ${category}:`, error));
+  const apiUrl = `https://api.themoviedb.org/3/discover/${category === "k-drama" ? "tv" : category}?api_key=${apiKey}&language=en-US&page=1`;
+
+  fetch(apiUrl)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => displayMovies(data.results, true)) // Pass `true` to indicate TMDB data
+    .catch((error) => console.error(`Error fetching ${category}:`, error));
 }
 
-
+/**
+ * Fetch trending movies from TMDB API.
+ */
 function fetchTrendingMovies() {
-    const apiKey = "cfdfd510ab2d960857f9947e9d4df55c";
-    const trendingUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
+  const trendingUrl = `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`;
 
-    fetch(trendingUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => displayMovies(data.results, true)) 
-        .catch(error => console.error("Error fetching trending movies:", error));
+  fetch(trendingUrl)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => displayMovies(data.results, true)) // Pass `true` to indicate TMDB data
+    .catch((error) => console.error("Error fetching trending movies:", error));
 }
 
-
-function displayMovies(movies, isTMDB = false) {
-    const container = document.getElementById("movie-container");
-    container.innerHTML = ""; 
-
-    movies.forEach(movie => {
-        const movieId = movie.id;
-        const movieTitle = movie.title || "Unknown Title";
-        const movieGenre = movie.genre || (movie.genre_ids ? movie.genre_ids.join(", ") : "N/A");
-        const movieYear = movie.year || (movie.release_date ? movie.release_date.split("-")[0] : "Unknown");
-        const movieDesc = movie.description || movie.overview || "No description available";
-        const movieImage = isTMDB
-            ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-            : movie.image || "default-image.jpg"; 
-
-        if (!movieId || !movieTitle) {
-            console.error("Invalid movie data:", movie);
-            return;
-        }
-
-        const movieDiv = document.createElement("div");
-        movieDiv.classList.add("movie");
-
-        movieDiv.innerHTML = `
-            <div class="movie-card">
-                <img src="${movieImage}" alt="${movieTitle}" class="clickable" data-id="${movieId}">
-                <div class="movie-details">
-                    <h2 class="clickable" data-id="${movieId}">${movieTitle}</h2>
-                    <p><strong>Genre:</strong> ${movieGenre}</p>
-                    <p><strong>Year:</strong> ${movieYear}</p> 
-                    <p class="description"><strong>Description:</strong> ${movieDesc}</p>
-                </div>
-            </div>
-        `;
-
-       
-        movieDiv.querySelectorAll(".clickable").forEach(element => {
-            element.addEventListener("click", (event) => {
-                const movieId = event.target.getAttribute("data-id");
-                if (movieId) {
-                    window.location.href = `movie.html?id=${movieId}`; // Redirect to details page
-                }
-            });
-        });
-
-        container.appendChild(movieDiv);
-    });
-}
-
-
+/**
+ * Search for movies or TV shows using TMDB API.
+ */
 function searchMovies() {
-    const searchInput = document.getElementById("search-input").value.toLowerCase().trim();
+  const searchInput = document.getElementById("search-input").value.toLowerCase().trim();
 
-    if (searchInput === "") {
-        fetchMovies(); 
-        return;
-    }
+  if (searchInput === "") {
+    fetchTrendingMovies(); // Reset to show trending movies
+    return;
+  }
 
-    fetch("http://localhost:3000/movies")
-        .then(response => response.json())
-        .then(data => {
-            const filteredMovies = data.filter(movie =>
-                movie.title.toLowerCase().includes(searchInput)
-            );
+  const searchUrl = `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=en-US&query=${encodeURIComponent(searchInput)}&page=1`;
 
-            if (filteredMovies.length === 0) {
-                document.getElementById("movie-container").innerHTML = "<h3>No movies found</h3>";
-            } else {
-                displayMovies(filteredMovies);
-            }
-        })
-        .catch(error => console.error("Error searching movies:", error));
+  fetch(searchUrl)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      if (data.results.length === 0) {
+        document.getElementById("movie-container").innerHTML = "<h3>No results found</h3>";
+      } else {
+        displayMovies(data.results, true); // Pass `true` to indicate TMDB data
+      }
+    })
+    .catch((error) => console.error("Error searching movies:", error));
 }
 
+/**
+ * Display movies or TV shows in the UI.
+ */
+function displayMovies(movies, isTMDB = false) {
+  const container = document.getElementById("movie-container");
+  container.innerHTML = ""; // Clear previous content
+
+  if (movies.length === 0) {
+    container.innerHTML = "<h3>No results found</h3>";
+    return;
+  }
+
+  movies.forEach((movie) => {
+    const movieId = movie.id;
+    const movieTitle = movie.title || movie.name || "Unknown Title";
+    const movieGenre = movie.genre_ids ? movie.genre_ids.join(", ") : "N/A";
+    const movieYear = movie.release_date || movie.first_air_date || "Unknown";
+    const movieDesc = movie.overview || "No description available";
+    const movieImage = movie.poster_path
+      ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+      : "default-image.jpg"; // Default image if no poster is available
+
+    const movieDiv = document.createElement("div");
+    movieDiv.classList.add("movie");
+
+    movieDiv.innerHTML = `
+      <div class="movie-card">
+        <img src="${movieImage}" alt="${movieTitle}" class="clickable" data-id="${movieId}">
+        <div class="movie-details">
+          <h2 class="clickable" data-id="${movieId}">${movieTitle}</h2>
+          <p><strong>Genre:</strong> ${movieGenre}</p>
+          <p><strong>Year:</strong> ${movieYear.split("-")[0]}</p>
+          <p class="description"><strong>Description:</strong> ${movieDesc}</p>
+        </div>
+      </div>
+    `;
+
+    // Add click event listeners to navigate to the movie details page
+    movieDiv.querySelectorAll(".clickable").forEach((element) => {
+      element.addEventListener("click", (event) => {
+        const movieId = event.target.getAttribute("data-id");
+        if (movieId) {
+          window.location.href = `movie.html?id=${movieId}`; // Redirect to details page
+        }
+      });
+    });
+
+    container.appendChild(movieDiv);
+  });
+}
