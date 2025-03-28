@@ -1,8 +1,6 @@
-let activeCategory = "all";
 const apiKey = "cfdfd510ab2d960857f9947e9d4df55c"; 
 
 document.addEventListener("DOMContentLoaded", () => {
- 
   document.getElementById("movies-btn").addEventListener("click", () => fetchCategory("movie"));
   document.getElementById("series-btn").addEventListener("click", () => fetchCategory("tv"));
   document.getElementById("animation-btn").addEventListener("click", () => fetchCategory("animation"));
@@ -13,16 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchTrendingMovies();
 });
 
-
- 
 function fetchCategory(category) {
   let apiUrl;
 
   if (category === "animation") {
-    
     apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&page=1&with_genres=16`;
   } else {
-    
     apiUrl = `https://api.themoviedb.org/3/discover/${category}?api_key=${apiKey}&language=en-US&page=1`;
   }
 
@@ -33,13 +27,12 @@ function fetchCategory(category) {
       }
       return response.json();
     })
-    .then((data) => displayMovies(data.results, true)) 
+    .then((data) => displayMovies(data.results))
     .catch((error) => {
       console.error(`Error fetching ${category}:`, error);
       displayError(`Failed to load ${category}. Please try again later.`);
     });
 }
-
 
 function fetchTrendingMovies() {
   const trendingUrl = `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`;
@@ -51,13 +44,12 @@ function fetchTrendingMovies() {
       }
       return response.json();
     })
-    .then((data) => displayMovies(data.results, true))
+    .then((data) => displayMovies(data.results))
     .catch((error) => {
       console.error("Error fetching trending movies:", error);
       displayError("Failed to load trending movies. Please try again later.");
     });
 }
-
 
 function searchMovies() {
   const searchInput = document.getElementById("search-input").value.toLowerCase().trim();
@@ -80,7 +72,7 @@ function searchMovies() {
       if (data.results.length === 0) {
         displayError("No results found for your search.");
       } else {
-        displayMovies(data.results, true); 
+        displayMovies(data.results);
       }
     })
     .catch((error) => {
@@ -89,8 +81,7 @@ function searchMovies() {
     });
 }
 
-
-function displayMovies(movies, isTMDB = false) {
+function displayMovies(movies) {
   const container = document.getElementById("movie-container");
   container.innerHTML = ""; 
 
@@ -102,7 +93,6 @@ function displayMovies(movies, isTMDB = false) {
   movies.forEach((movie) => {
     const movieId = movie.id;
     const movieTitle = movie.title || movie.name || "Unknown Title";
-    const movieGenre = movie.genre_ids ? movie.genre_ids.join(", ") : "N/A";
     const movieYear = movie.release_date || movie.first_air_date || "Unknown";
     const movieDesc = movie.overview || "No description available";
     const movieImage = movie.poster_path
@@ -117,19 +107,17 @@ function displayMovies(movies, isTMDB = false) {
         <img src="${movieImage}" alt="${movieTitle}" class="clickable" data-id="${movieId}">
         <div class="movie-details">
           <h2 class="clickable" data-id="${movieId}">${movieTitle}</h2>
-          <p><strong>Genre:</strong> ${movieGenre}</p>
           <p><strong>Year:</strong> ${movieYear.split("-")[0]}</p>
           <p class="description"><strong>Description:</strong> ${movieDesc}</p>
         </div>
       </div>
     `;
 
-   
     movieDiv.querySelectorAll(".clickable").forEach((element) => {
       element.addEventListener("click", (event) => {
         const movieId = event.target.getAttribute("data-id");
         if (movieId) {
-          window.location.href = `movie.html?id=${movieId}`; 
+          window.location.href = `movie.html?id=${movieId}`;
         }
       });
     });
@@ -137,7 +125,6 @@ function displayMovies(movies, isTMDB = false) {
     container.appendChild(movieDiv);
   });
 }
-
 
 function displayError(message) {
   const container = document.getElementById("movie-container");
