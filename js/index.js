@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("movies-btn").addEventListener("click", () => fetchCategory("movie"));
   document.getElementById("series-btn").addEventListener("click", () => fetchCategory("tv"));
   document.getElementById("animation-btn").addEventListener("click", () => fetchCategory("animation"));
-  document.getElementById("browser-btn").addEventListener("click", fetchTrendingMovies);
+  document.getElementById("trending-btn").addEventListener("click", fetchTrendingMovies);
   document.getElementById("search-btn").addEventListener("click", searchMovies);
 
  
