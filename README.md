@@ -1,4 +1,4 @@
-https://kennedy218218.github.io/MY-PROJECT/
+https://movie-web-three-sandy.vercel.app/
 
 // APIKey 
 it fetches data eg getting movie details from a database to my streaming site 
